@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title></title>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
     <script type="text/javascript" src="js/controllers.js"></script>
 </head>
 <body>
@@ -23,8 +24,9 @@
             <li data-ng-repeat="item in eatList">
                 <div>
                     <button data-ng-click="actionDel(item)">Del</button>
-                    <span class="edit">{{item.name}}</span>
-                    <span class="edit">{{item.descr}}</span>
+                    <span contentEditable data-ng-blur="actionEdit(item, 'name', $event)">{{item.name}}</span>
+                    <span contentEditable data-ng-blur="actionEdit(item, 'descr', $event)">{{item.descr}}</span>
+                    <span>{{item.address}}</span>
                     <hr>
                 </div>
             </li>
@@ -46,7 +48,7 @@
     .new button{ height: 30px; margin-top: 15px; }
     .list ul { list-style: none; margin-top: 60px; padding: 0; }
     .list li{ margin: 10px 0; }
-    .list li span.edit { display: inline-block; padding: 10px; }
+    .list li span { display: inline-block; padding: 10px; }
 </style>
 </body>
 </html>
