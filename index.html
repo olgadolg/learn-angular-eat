@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html data-ng-app="EatApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+    <script type="text/javascript" src="js/controllers.js"></script>
+</head>
+<body>
+
+<div class="wrapper" data-ng-controller="EatCtrl">
+
+
+    <div class="new">
+        <input type="text" placeholder="name" data-ng-model="name">
+        <textarea placeholder="description" data-ng-model="descr"></textarea>
+        <button data-ng-click="actionAdd()">Add</button>
+    </div>
+
+
+    <div class="list">
+        <ul>
+            <li data-ng-repeat="item in eatList">
+                <div>
+                    <button data-ng-click="actionDel(item)">Del</button>
+                    <span class="edit">{{item.name}}</span>
+                    <span class="edit">{{item.descr}}</span>
+                    <hr>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+<style>
+    .new { height: 80px; }
+    .new *{
+        display: block;
+        float: left;
+        margin-right: 10px;
+        padding: 5px;
+    }
+    .new input{ height: 30px; margin-top: 15px; }
+    .new textarea{ height: 60px; width: 300px; }
+    .new button{ height: 30px; margin-top: 15px; }
+    .list ul { list-style: none; margin-top: 60px; padding: 0; }
+    .list li{ margin: 10px 0; }
+    .list li span.edit { display: inline-block; padding: 10px; }
+</style>
+</body>
+</html>
